@@ -80,6 +80,7 @@ require 'quickeebooks/online/model/payment_detail'
 require 'quickeebooks/online/model/credit_card'
 require 'quickeebooks/online/model/credit_charge_info'
 require 'quickeebooks/online/model/credit_charge_response'
+require 'quickeebooks/online/model/employee'
 
 # Services
 require 'quickeebooks/online/service/filter'
@@ -93,6 +94,7 @@ require 'quickeebooks/online/service/item'
 require 'quickeebooks/online/service/entitlement'
 require 'quickeebooks/online/service/payment'
 require 'quickeebooks/online/service/access_token'
+require 'quickeebooks/online/service/employee'
 
 #== Windows
 
@@ -131,6 +133,7 @@ require 'quickeebooks/windows/model/clazz'
 require 'quickeebooks/windows/model/sales_receipt_header'
 require 'quickeebooks/windows/model/sales_receipt_line_item'
 require 'quickeebooks/windows/model/sales_receipt'
+require 'quickeebooks/windows/model/employee'
 
 
 # Services
@@ -150,3 +153,4 @@ require 'quickeebooks/windows/service/company_meta_data'
 require 'quickeebooks/windows/service/payment'
 require 'quickeebooks/windows/service/clazz'
 require 'quickeebooks/windows/service/access_token'
+require 'quickeebooks/windows/service/employee'
