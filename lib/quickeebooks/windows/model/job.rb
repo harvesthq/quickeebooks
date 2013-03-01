@@ -42,10 +42,10 @@ module Quickeebooks
         xml_accessor :notes, :from => 'Note', :as => [Quickeebooks::Windows::Model::Note]
         xml_accessor :active, :from => 'Active'
         xml_accessor :show_as, :from => 'ShowAs'
-        xml_accessor :customer_type_id, :from => 'CustomerTypeId'
+        xml_accessor :customer_type_id, :from => 'CustomerTypeId', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :customer_type_name, :from => 'CustomerTypeName'
 
-        xml_accessor :customer_id, :from => 'CustomerId'
+        xml_accessor :customer_id, :from => 'CustomerId', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :customer_name, :from => 'CustomerName'
         xml_accessor :job_parent_id, :from => 'JobParentId'
         xml_accessor :job_parent_name, :from => 'JobParentName'

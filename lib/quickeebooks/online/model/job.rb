@@ -35,12 +35,12 @@ module Quickeebooks
         xml_accessor :dba_name, :from => 'DBAName'
         xml_accessor :tax_identifier, :from => 'TaxIdentifier'
         xml_accessor :show_as, :from => 'ShowAs'
-        xml_accessor :customer_type_id, :from => 'CustomerTypeId'
+        xml_accessor :customer_type_id, :from => 'CustomerTypeId', :as => Quickeebooks::Online::Model::Id
         xml_accessor :customer_type_name, :from => 'CustomerTypeName'
 
-        xml_accessor :customer_id, :from => 'CustomerId'
+        xml_accessor :customer_id, :from => 'CustomerId', :as => Quickeebooks::Online::Model::Id
         xml_accessor :customer_name, :from => 'CustomerName'
-        xml_accessor :job_parent_id, :from => 'JobParentId'
+        xml_accessor :job_parent_id, :from => 'JobParentId', :as => Quickeebooks::Online::Model::Id
         xml_accessor :job_parent_name, :from => 'JobParentName'
 
         validates :name, :presence => true
