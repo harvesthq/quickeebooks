@@ -22,7 +22,7 @@ module Quickeebooks
         xml_accessor :meta_data, :from => 'MetaData', :as => Quickeebooks::Online::Model::MetaData
         xml_accessor :name, :from => 'Name'
         xml_accessor :addresses, :from => 'Address', :as => [Quickeebooks::Online::Model::Address]
-        xml_accessor :phone, :from => 'Phone', :as => Quickeebooks::Online::Model::Phone
+        xml_accessor :phones, :from => 'Phone', :as => Quickeebooks::Online::Model::Phone
         xml_accessor :web_site, :from => 'WebSite', :as => Quickeebooks::Online::Model::WebSite
         xml_accessor :email, :from => 'Email', :as => Quickeebooks::Online::Model::Email
         xml_accessor :given_name, :from => 'GivenName'
