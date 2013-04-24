@@ -56,10 +56,6 @@ module Quickeebooks
 
         validates :name, :presence => true
 
-        def to_xml_ns(options = {})
-          to_xml_inject_ns('Employee', options)
-        end
-
         def valid_for_create?
           valid?
           if type_of.nil?

@@ -52,10 +52,6 @@ module Quickeebooks
         validates :customer_id, :presence => true
         validates :item_id, :presence => true
 
-        def to_xml_ns(options = {})
-          to_xml_inject_ns('TimeActivity', options)
-        end
-
         def valid_for_update?
           if sync_token.nil?
             errors.add(:sync_token, "Missing required attribute SyncToken for update")
