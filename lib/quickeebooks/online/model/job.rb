@@ -62,30 +62,6 @@ module Quickeebooks
           id.value.to_i > 0 && !sync_token.to_s.empty? && sync_token.to_i >= 0
         end
 
-        def email_address=(email_address)
-          self.email = Quickeebooks::Online::Model::Email.new(email_address)
-        end
-
-        def address=(address)
-          self.addresses ||= []
-          self.addresses << address
-        end
-
-        def name_cannot_contain_invalid_characters
-          if name.to_s.index(':')
-            errors.add(:name, "Name cannot contain a colon (:)")
-          end
-        end
-
-        def email_address_is_valid
-          if email
-            address = email.address
-            unless address.index('@') && address.index('.')
-              errors.add(:email, "Email address must contain @ and . (dot)")
-            end
-          end
-        end
-
         def self.resource_for_collection
           "#{REST_RESOURCE}s"
         end
