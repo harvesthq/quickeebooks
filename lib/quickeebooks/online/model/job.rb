@@ -13,8 +13,8 @@ module Quickeebooks
       class Job < Quickeebooks::Online::Model::IntuitType
         include ActiveModel::Validations
 
-        XML_NODE = "Employee"
-        REST_RESOURCE = "employee"
+        XML_NODE = "Job"
+        REST_RESOURCE = "job"
 
         xml_convention :camelcase
         xml_accessor :id, :from => 'Id', :as => Quickeebooks::Online::Model::Id
@@ -46,7 +46,7 @@ module Quickeebooks
         validates :name, :presence => true
 
         def to_xml_ns(options = {})
-          to_xml_inject_ns('Employee', options)
+          to_xml_inject_ns(XML_NODE, options)
         end
 
         def valid_for_update?
