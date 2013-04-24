@@ -18,9 +18,10 @@ module Quickeebooks
           super
         end
 
-        def initialize(email_address = nil)
+        def initialize(email_address = nil, tag = 'Business')
           unless email_address.nil?
             self.address = email_address
+            self.tag = tag
           end
         end
         
