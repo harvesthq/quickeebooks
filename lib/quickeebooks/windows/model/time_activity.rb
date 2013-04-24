@@ -11,13 +11,13 @@ module Quickeebooks
 
         XML_NODE = "TimeActivity"
         XML_COLLECTION_NODE = 'TimeActivities'
-        REST_RESOURCE = "time_activity"
+        REST_RESOURCE = "timeactivity"
 
         xml_convention :camelcase
         xml_accessor :id, :from => 'Id', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :sync_token, :from => 'SyncToken', :as => Integer
         xml_accessor :meta_data, :from => 'MetaData', :as => Quickeebooks::Windows::Model::MetaData
-        xml_accessor :external_key, :from => 'ExternalKey'
+        xml_accessor :external_key, :from => 'ExternalKey', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :synchronized, :from => 'Synchronized'
         xml_accessor :custom_fields, :from => 'CustomField', :as => [Quickeebooks::Windows::Model::CustomField]
         xml_accessor :draft, :from => 'Draft'
@@ -26,6 +26,8 @@ module Quickeebooks
         xml_accessor :txn_date, :from => 'TxnDate', :as => DateTime
         xml_accessor :name_of, :from => 'NameOf'
 
+        xml_accessor :employee_id, :from => 'EmployeeId', :in => 'Employee', :as => Quickeebooks::Windows::Model::Id
+        xml_accessor :employee_name, :from => 'EmployeeName', :in => 'Employee'
         xml_accessor :customer_id, :from => 'CustomerId', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :customer_name, :from => 'CustomerName'
         xml_accessor :job_id, :from => 'JobId', :as => Quickeebooks::Windows::Model::Id
@@ -48,9 +50,7 @@ module Quickeebooks
         xml_accessor :end_time, :from => 'EndTime', :as => DateTime
         xml_accessor :description, :from => 'Description'
 
-        validates :name_of, :presence => true
-        validates :customer_id, :presence => true
-        validates :item_id, :presence => true
+        validates_presence_of :name_of, :customer_id, :hourly_rate
 
         def valid_for_update?
           if sync_token.nil?

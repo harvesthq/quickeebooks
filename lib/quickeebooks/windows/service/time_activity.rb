@@ -22,7 +22,6 @@ module Quickeebooks
           xml_node.set_attribute('xsi:type', 'TimeActivity')
           xml = <<-XML
           <Add xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequestId="#{guid}" xmlns="http://www.intuit.com/sb/cdm/v2">
-          <ExternalRealmId>#{self.realm_id}</ExternalRealmId>
           #{xml_node}
           </Add>
           XML
@@ -34,30 +33,12 @@ module Quickeebooks
           #    <Object xsi:type="time_activity">
 
           # Intuit requires that some fields are unset / do not exist.
-          time_activity.meta_data = nil
-          time_activity.external_key = nil
+          # time_activity.meta_data = nil
+          # time_activity.external_key = nil
 
-          # unset Id fields in addresses, phones, email
-          if time_activity.addresses
-            time_activity.addresses.each {|address| address.id = nil }
-          end
-          if time_activity.email
-            time_activity.email.id = nil
-          end
-
-          if time_activity.phones
-            time_activity.phones.each {|phone| phone.id = nil }
-          end
-
-          if time_activity.web_site
-            time_activity.web_site.id = nil
-          end
-
-          xml_node = time_activity.to_xml(:name => 'Object')
-          xml_node.set_attribute('xsi:type', 'TimeActivity')
+          xml_node = time_activity.to_xml(:name => 'TimeActivity')
           xml = <<-XML
           <Mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequestId="#{guid}" xmlns="http://www.intuit.com/sb/cdm/v2">
-          <ExternalRealmId>#{self.realm_id}</ExternalRealmId>
           #{xml_node}
           </Mod>
           XML

@@ -9,21 +9,23 @@ module Quickeebooks
         include ActiveModel::Validations
 
         XML_NODE = "TimeActivity"
-        XML_COLLECTION_NODE = 'TimeActivities'
-        REST_RESOURCE = "time_activity"
+        XML_COLLECTION_NODE = 'TimeActivitys'
+        REST_RESOURCE = "time-activity"
 
         xml_convention :camelcase
         xml_accessor :id, :from => 'Id', :as => Quickeebooks::Online::Model::Id
         xml_accessor :sync_token, :from => 'SyncToken', :as => Integer
         xml_accessor :meta_data, :from => 'MetaData', :as => Quickeebooks::Online::Model::MetaData
-        xml_accessor :draft, :from => 'Draft'
-        xml_accessor :object_state, :from => 'ObjectState'
 
         xml_accessor :txn_date, :from => 'TxnDate', :as => DateTime
         xml_accessor :name_of, :from => 'NameOf'
 
+        xml_accessor :employee_id, :from => 'EmployeeId', :in => 'Employee', :as => Quickeebooks::Online::Model::Id
+        xml_accessor :employee_name, :from => 'EmployeeName', :in => 'Employee'
         xml_accessor :customer_id, :from => 'CustomerId', :as => Quickeebooks::Online::Model::Id
         xml_accessor :customer_name, :from => 'CustomerName'
+        xml_accessor :job_id, :from => 'JobId', :as => Quickeebooks::Online::Model::Id
+        xml_accessor :job_name, :from => 'JobName'
         xml_accessor :item_id, :from => 'ItemId', :as => Quickeebooks::Online::Model::Id
         xml_accessor :class_id, :from => 'ClassId', :as => Quickeebooks::Online::Model::Id
         xml_accessor :billable_status, :from => 'BillableStatus'
@@ -37,10 +39,10 @@ module Quickeebooks
         xml_accessor :end_time, :from => 'EndTime', :as => DateTime
         xml_accessor :description, :from => 'Description'
 
-        validates_presence_of :name_of, :customer_id, :item_id, :hourly_rate
+        validates_presence_of :name_of, :customer_id, :hourly_rate
 
         def to_xml_ns(options = {})
-          to_xml_inject_ns('TimeActivity', options)
+          to_xml_inject_ns(XML_NODE, options)
         end
 
         def valid_for_update?
