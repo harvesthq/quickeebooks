@@ -59,7 +59,7 @@ module Quickeebooks
         end
 
         def self.resource_for_collection
-          "#{REST_RESOURCE}s"
+          REST_RESOURCE
         end
 
       end

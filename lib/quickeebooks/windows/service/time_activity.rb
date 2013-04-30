@@ -22,6 +22,7 @@ module Quickeebooks
           xml_node.set_attribute('xsi:type', 'TimeActivity')
           xml = <<-XML
           <Add xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" RequestId="#{guid}" xmlns="http://www.intuit.com/sb/cdm/v2">
+          <OfferingId>ipp</OfferingId>
           #{xml_node}
           </Add>
           XML
