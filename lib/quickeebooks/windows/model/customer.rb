@@ -74,7 +74,6 @@ module Quickeebooks
 
         validates_length_of :name, :minimum => 1
         validate :name_cannot_contain_invalid_characters
-        validate :email_address_is_valid
         
         def active?
           active == 'true'
@@ -125,15 +124,6 @@ module Quickeebooks
         def name_cannot_contain_invalid_characters
           if name.to_s.index(':')
             errors.add(:name, "Name cannot contain a colon (:)")
-          end
-        end
-        
-        def email_address_is_valid
-          if email
-            address = email.address
-            unless address.index('@') && address.index('.')
-              errors.add(:email, "Email address must contain @ and . (dot)")
-            end
           end
         end
 
