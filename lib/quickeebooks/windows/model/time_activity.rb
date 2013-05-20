@@ -34,6 +34,7 @@ module Quickeebooks
         xml_accessor :job_name, :from => 'JobName'
         xml_accessor :item_id, :from => 'ItemId', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :item_name, :from => 'ItemName'
+        xml_accessor :item_type, :from => 'ItemType'
         xml_accessor :class_id, :from => 'ClassId', :as => Quickeebooks::Windows::Model::Id
         xml_accessor :class_name, :from => 'ClassName'
         xml_accessor :pay_item_id, :from => 'PayItemId', :as => Quickeebooks::Windows::Model::Id
