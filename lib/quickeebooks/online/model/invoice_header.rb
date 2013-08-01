@@ -23,6 +23,7 @@ module Quickeebooks
         xml_accessor :due_date, :from => 'DueDate', :as => Time
         xml_accessor :bill_email, :from => 'BillEmail'
         xml_accessor :discount_amount, :from => 'DiscountAmt', :as => Float
+        xml_accessor :discount_rate, :from => 'DiscountRate', :as => Float
         xml_accessor :status, :from => 'Status'
         xml_accessor :ship_date, :from => 'ShipDate', :as => Time
         xml_accessor :to_be_emailed, :from => 'ToBeEmailed'
