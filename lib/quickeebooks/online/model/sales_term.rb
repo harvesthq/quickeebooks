@@ -24,7 +24,7 @@ module Quickeebooks
         xml_accessor :discount_day_of_month, :from => 'DiscountDayOfMonth', :as => Integer
         xml_accessor :date_discount_percent, :from => 'DateDiscountPercent', :as => Float
 
-        validates_presence_of :name, :due_days, :day_of_month_due
+        validates_presence_of :name
         validates_numericality_of :day_of_month_due, :greater_than => 0
         validates_numericality_of :due_next_month_days, :greater_than => 0
         validates_numericality_of :discount_day_of_month, :greater_than => 0
