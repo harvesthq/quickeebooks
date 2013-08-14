@@ -83,6 +83,7 @@ require 'quickeebooks/online/model/credit_charge_response'
 require 'quickeebooks/online/model/employee'
 require 'quickeebooks/online/model/job'
 require 'quickeebooks/online/model/time_activity'
+require 'quickeebooks/online/model/sales_term'
 
 # Services
 require 'quickeebooks/online/service/filter'
@@ -99,6 +100,7 @@ require 'quickeebooks/online/service/access_token'
 require 'quickeebooks/online/service/employee'
 require 'quickeebooks/online/service/job'
 require 'quickeebooks/online/service/time_activity'
+require 'quickeebooks/online/service/sales_term'
 
 #== Windows
 
