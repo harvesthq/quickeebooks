@@ -1,5 +1,5 @@
 # https://developer.intuit.com/docs/0025_quickbooksapi/0050_data_services/v2/0400_quickbooks_online/salesterm
-
+require 'quickeebooks'
 require 'quickeebooks/online/model/id'
 require 'quickeebooks/online/model/meta_data'
 
@@ -10,8 +10,9 @@ module Quickeebooks
         include ActiveModel::Validations
 
         XML_NODE = "SalesTerm"
-        REST_RESOURCE = "sales-terms"
+        REST_RESOURCE = "sales-term"
 
+        xml_convention :camelcase
         xml_accessor :id, :from => 'Id', :as => Quickeebooks::Online::Model::Id
         xml_accessor :sync_token, :from => 'SyncToken', :as => Integer
         xml_accessor :meta_data, :from => 'MetaData', :as => Quickeebooks::Online::Model::MetaData
@@ -25,9 +26,6 @@ module Quickeebooks
         xml_accessor :date_discount_percent, :from => 'DateDiscountPercent', :as => Float
 
         validates_presence_of :name
-        validates_numericality_of :day_of_month_due, :greater_than => 0
-        validates_numericality_of :due_next_month_days, :greater_than => 0
-        validates_numericality_of :discount_day_of_month, :greater_than => 0
 
         def valid_for_update?
           errors.empty?
@@ -43,7 +41,7 @@ module Quickeebooks
         end
 
         def self.resource_for_collection
-          self::REST_RESOURCE
+          "#{self::REST_RESOURCE}s"
         end
 
       end
