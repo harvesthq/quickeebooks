@@ -27,6 +27,7 @@ module Quickeebooks
         xml_accessor :status, :from => 'Status'
         xml_accessor :ship_date, :from => 'ShipDate', :as => Time
         xml_accessor :to_be_emailed, :from => 'ToBeEmailed'
+        xml_accessor :sales_term_id, :from => 'SalesTermId'
       end
     end
   end
