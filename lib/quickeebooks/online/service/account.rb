@@ -6,7 +6,7 @@ module Quickeebooks
     module Service
       class Account < ServiceBase
 
-        def list(filters = [], page = 1, per_page = 20, sort = nil, options = {})
+        def list(filters = [], page = 1, per_page = 100, sort = nil, options = {})
           fetch_collection(Quickeebooks::Online::Model::Account, filters, page, per_page, sort, options)
         end
 
